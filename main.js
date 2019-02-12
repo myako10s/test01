@@ -3,13 +3,13 @@ $(document).ready(function() {
     rec.continuous = true;
     rec.interimResults = false;
     rec.lang = 'ja-JP';
-
+    
     rec.onresult = function(e) {
         rec.stop();
         for (var i = e.resultIndex; i < e.results.length; ++i) {
             if (e.results[i].isFinal) {
                 var str = e.results[i][0].transcript;
-                $("#log").append( str + "<br />" );
+                $("#log").append("<div class='balloon-set-box left'><div class='balloon'>" + str + "</div></div>");
                 $("#log").scrollTop( $("#log")[0].scrollHeight );
                 console.log('Recognised: ' + str);
             }
