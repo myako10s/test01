@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var stop_flag = true;
     var rec = new webkitSpeechRecognition();
     rec.continuous = true;
     rec.interimResults = false;
@@ -17,7 +18,7 @@ $(document).ready(function() {
     }
 
     rec.onstart = () => { console.log('on start') };
-    rec.onend = () => { console.log('on end'); rec.start(); };
+    rec.onend = () => { console.log('on end'); if(!stop_flag) { rec.start(); } };
 
     rec.onspeechstart = () => { console.log('on speech start') };
     rec.onspeechend = () => { console.log('on speech end') };
@@ -29,9 +30,11 @@ $(document).ready(function() {
     rec.onaudioend = () => { console.log('on audio end') };
     
     $("#startRecBtn").click(function() {
-      rec.start();
+        stop_flag = false;
+        rec.start();
     });
     $("#stopRecBtn").click(function() {
-      rec.stop();
+        stop_flag = true;
+        rec.stop();
     });
 });
