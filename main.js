@@ -50,4 +50,3 @@ $(document).ready(function() {
       rec.stop();
     });
 });
-rec.start()
