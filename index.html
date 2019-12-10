@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <head lang="ja-JP">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3558735-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-3558735-3', {
+        'custom_map': {'dimension1': 'test_dimension'}
+      });
+      gtag('event', 'test_dimension', {'test_dimension': '123'});
+    </script>
+
     <meta charset="utf-8">
     <title>ブラウザ音声認識サンプル</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
